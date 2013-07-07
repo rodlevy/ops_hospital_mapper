@@ -14,3 +14,15 @@ body {
 .note {
   font-style:italic;
 }
+
+
+#target {
+  width: 300px;
+}
+
+#search-box {
+  position: absolute;
+  top:20px;
+  left: 400px;
+  z-index: 5;
+}
