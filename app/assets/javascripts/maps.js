@@ -24,9 +24,17 @@ $(document).ready(function(){
     var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
 
-    setMarkers(map, hospitals)
+    setMarkers(map, hospitals);
 
-  };
+    var input = /** @type {HTMLInputElement} */(document.getElementById('target'));
+    var searchBox = new google.maps.places.SearchBox(input);
+    google.maps.event.addListener(searchBox, 'places_changed', function() {
+        var places = searchBox.getPlaces();
+
+    };
+
+
+
 
     function setMarkers(map, locations){
       
