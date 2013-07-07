@@ -71,10 +71,59 @@ $(document).ready(function(){
       //   mapTypeId: google.maps.MapTypeId.ROADMAP
       // });
 
+    var styles = [
+        {
+          stylers: [
+            { hue: "#008C9A" },
+            { saturation: -20 }
+          ]
+        },{
+          featureType: "road",
+          elementType: "geometry",
+          stylers: [
+            { lightness: 100 },
+            { visibility: "simplified" }
+          ]
+        },{
+          featureType: "road",
+          elementType: "labels",
+          stylers: [
+            { visibility: "off" }
+          ]
+        },{
+          featureType: "administrative.neighborhood",
+          elementType: "labels",
+          stylers: [
+            {visibility: "simplified"}
+          ]
+        },{
+          featureType: "landscape",
+          elementType: "all",
+          stylers: [
+            { visibility: "simplified" }
+          ]
+        },{
+          featureType: "poi",
+          elementType: "all",
+          stylers: [
+            { visibility: "off" }
+          ]
+        },{
+          featureType: "transit",
+          elementType: "all",
+          stylers: [
+            { visibility: "simplified" }
+          ]
+        }
+      ];
+
+      var styledMap = new google.maps.StyledMapType(styles,
+        {name: "Styled Map"});
+
       var mapOptions = {
         center: new google.maps.LatLng(41.8500, -87.8500),
         zoom: 11,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        mapTypeIds: [google.maps.MapTypeId.TERRAIN, 'map_style'],
         panControl: false,
         zoomControl: true,
         zoomControlOptions: {
@@ -87,10 +136,15 @@ $(document).ready(function(){
         }
       };
 
+
+
       var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
 
       setMarkers(map, hospitals);
+
+      map.mapTypes.set('map_style', styledMap);
+      map.setMapTypeId('map_style');
 
       var defaultBounds = new google.maps.LatLngBounds(
           new google.maps.LatLng(41.7700, -87.9000),
