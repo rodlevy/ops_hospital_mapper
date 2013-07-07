@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20130704195241) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "hospitals", :id => false, :force => true do |t|
+  create_table "hospitals", :force => true do |t|
     t.integer  "provider_id"
     t.string   "provider_name"
     t.string   "provider_street_address"
@@ -117,12 +117,12 @@ ActiveRecord::Schema.define(:version => 20130704195241) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "procedures", :id => false, :force => true do |t|
+  create_table "procedures", :force => true do |t|
     t.integer  "drg_id"
     t.string   "drg_def"
-    t.integer  "total_discharges_IL"
-    t.float    "avg_covered_charges_IL"
-    t.float    "avg_total_payments_IL"
+    t.integer  "total_discharges"
+    t.float    "avg_covered_charges"
+    t.float    "avg_total_payments"
     t.integer  "natl_total_discharges"
     t.float    "natl_avg_covered_charges"
     t.float    "natl_avg_total_payments"
