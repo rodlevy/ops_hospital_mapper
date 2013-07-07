@@ -74,8 +74,8 @@ $(document).ready(function(){
     var styles = [
         {
           stylers: [
-            { hue: "#008C9A" },
-            { saturation: -20 }
+            { hue: "#375D81" },
+            // { saturation: -20 }
           ]
         },{
           featureType: "road",

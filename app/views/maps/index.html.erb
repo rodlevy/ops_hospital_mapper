@@ -9,35 +9,33 @@
 
 <div class="panel">
 
-    <em>Procedures</em>        
-    <select id="procdropdown" data-placeholder="Choose a Procedure..." class="chzn-select" style="width:250px;" tabindex="1">
+    <h3>Top 100 most frequently billed medical procedures</h3>        
+    <select id="procdropdown" data-placeholder="Choose a Procedure..." class="chzn-select" tabindex="1">
       <option value=""></option>
       <% @procedures.each do |procedure|  %>
-        <option value='<%=procedure.drg_def %>'><%=procedure.drg_def%></option> 
+        <option value='<%=procedure.drg_def.titleize %>'><%=procedure.drg_def.titleize%></option> 
       <% end  %>
     </select>
 
-  <div style="clear:both;"></div>
   
-      <h3>Patient Surveys</h3>
-          <ul>
-              <li><a href="#" title="home">Home</a></li>
-              <li><a href="#/" title="about">About</a></li>
-          </ul>
-   
-          <h3>Hospital Outcomes</h3>
-          <input type="textarea" placeholder="search">
+      <h3 class="subh3">Patient Surveys</h3>
 
-  <div style="clear:both;"></div>
+      <select id="procdropdown" data-placeholder="Select patient survey data..." class="chzn-select" tabindex="1">
+      </select>
+   
+      <h3 class="subh3">Hospital Outcomes</h3>
+      <select id="procdropdown" data-placeholder="Select hospital outcome data..." class="chzn-select" tabindex="1">
+      </select>
+
  
   </div>
-  <a class="trigger" href="#">Details</a>
+  <a class="trigger" href="#"><span class="clear-text">Hide</span></a>
   </div>
 
 </div>
 
 <div id="search-box">
-      <input id="target" type="text" placeholder="Search Box">
+      <input id="target" type="text" placeholder="Search hospital or location">
 </div>
 
 <div id="map-canvas">
