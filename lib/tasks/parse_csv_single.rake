@@ -3,15 +3,9 @@ require 'csv'
 namespace :db do
   desc "parse csv files for hospital database"
   task :parse_csv_hospitals  => :environment do
-    hosp_il = File.open(File.join(Rails.root, "dataset", "hospitals_il.csv"),"r")
-    csv_hosp_il = CSV.parse(hosp_il, :headers => true)
-    csv_hosp_il.each do |row|
-      Hospital.create!(row.to_hash)
-    end
-
-    hosp_usa = File.open(File.join(Rails.root, "dataset", "hospitals_usa.csv"),"r")
-    csv_hosp_usa = CSV.parse(hosp_usa, :headers => true)
-    csv_hosp_usa.each do |row|
+    hospital_all = File.open(File.join(Rails.root, "dataset", "hospitals_all_geocoded.csv"),"r")
+    csv_hospital_all = CSV.parse(hospital_all, :headers => true)
+    csv_hospital_all.each do |row|
       Hospital.create!(row.to_hash)
     end
   end
